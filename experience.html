@@ -86,6 +86,29 @@
 
     .footer { display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; background: #070709; border-top: 1px solid var(--border); font-size: 10px; color: var(--text-muted); margin-top: 1px; }
     .footer-keys span { padding: 2px 5px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; font-size: 9px; margin-right: 3px; }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 0 10px; }
+      .topbar-clock, .topbar-status, .topbar-spacer { display: none; }
+      .topbar-sep { display: none; }
+      .topbar-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .topbar-nav::-webkit-scrollbar { display: none; }
+      .topbar-nav a { padding: 5px 8px; font-size: 10px; white-space: nowrap; letter-spacing: 0.3px; }
+
+      .page-header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
+      .page-title { font-size: 17px; }
+
+      .content { padding: 10px 12px; }
+
+      .exp-header { flex-direction: column; gap: 8px; padding: 12px 14px 10px; }
+      .exp-badge { flex-direction: row; align-items: center; gap: 10px; }
+      .exp-role { font-size: 15px; }
+      .exp-body { padding: 10px 14px; }
+      .exp-footer { padding: 8px 14px; }
+
+      .footer { flex-direction: column; gap: 4px; text-align: center; }
+      .footer-keys { display: none; }
+    }
   </style>
 </head>
 <body>

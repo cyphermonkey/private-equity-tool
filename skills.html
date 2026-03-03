@@ -73,6 +73,27 @@
     .footer-keys span { padding: 2px 5px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; font-size: 9px; margin-right: 3px; }
 
     @media (max-width: 700px) { .content { grid-template-columns: 1fr; } }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 0 10px; }
+      .topbar-clock, .topbar-status, .topbar-spacer { display: none; }
+      .topbar-sep { display: none; }
+      .topbar-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .topbar-nav::-webkit-scrollbar { display: none; }
+      .topbar-nav a { padding: 5px 8px; font-size: 10px; white-space: nowrap; letter-spacing: 0.3px; }
+
+      .page-header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
+      .content { padding: 10px 12px; }
+
+      .sk-name { flex: 0 0 130px; font-size: 11px; }
+
+      .footer { flex-direction: column; gap: 4px; text-align: center; }
+      .footer-keys { display: none; }
+    }
+
+    @media (max-width: 420px) {
+      .sk-name { flex: 0 0 105px; font-size: 10px; }
+    }
   </style>
 </head>
 <body>
