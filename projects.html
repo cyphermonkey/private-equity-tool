@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAIBHAV SINGH | Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0d; --bg-card: #111116; --bg-alt: #15151b; --bg-hover: #1a1a22;
+      --border: #222228; --border-lit: #333340;
+      --text: #e4e4e7; --text-dim: #9191a0; --text-muted: #55555f;
+      --orange: #ff6e1a; --og: rgba(255,110,26,0.12);
+      --blue: #2e90fa;   --bg-b: rgba(46,144,250,0.10);
+      --green: #12b76a;  --bg-g: rgba(18,183,106,0.10);
+      --red: #f04438;    --bg-r: rgba(240,68,56,0.08);
+      --yellow: #eaaa08; --bg-y: rgba(234,170,8,0.10);
+      --cyan: #06aed4;   --bg-c: rgba(6,174,212,0.08);
+      --purple: #7c3aed; --bg-p: rgba(124,58,237,0.10);
+      --mono: 'IBM Plex Mono', monospace; --display: 'Syne', sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 13px; line-height: 1.5; min-height: 100vh; }
+    body::after { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0,0,0,0.01) 3px, rgba(0,0,0,0.01) 4px); pointer-events: none; z-index: 9999; }
+
+    .topbar { display: flex; align-items: center; height: 36px; padding: 0 14px; background: #070709; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; gap: 10px; }
+    .topbar-brand { font-family: var(--display); font-weight: 800; font-size: 15px; color: var(--orange); letter-spacing: 1px; flex-shrink: 0; }
+    .topbar-sep { width: 1px; height: 18px; background: var(--border); }
+    .topbar-nav { display: flex; gap: 2px; }
+    .topbar-nav a { padding: 5px 12px; color: var(--text-dim); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.8px; border-radius: 3px; transition: background .12s, color .12s; }
+    .topbar-nav a:hover { background: var(--bg-card); color: var(--text); }
+    .topbar-nav a.active { background: var(--og); color: var(--orange); }
+    .topbar-spacer { flex: 1; }
+    .topbar-clock { color: var(--text-muted); font-size: 11px; letter-spacing: 1px; }
+    .topbar-status { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--green); }
+    .topbar-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .ticker-bar { height: 26px; background: #070709; border-bottom: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; }
+    .ticker-label { background: var(--purple); color: #fff; font-size: 9px; font-weight: 700; padding: 0 10px; letter-spacing: 1.5px; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+    .ticker-scroll { overflow: hidden; flex: 1; }
+    .ticker-track { display: flex; animation: slide 50s linear infinite; white-space: nowrap; }
+    .ticker-item { display: inline-flex; align-items: center; gap: 6px; padding: 0 16px; font-size: 11px; flex-shrink: 0; }
+    .t-key { color: var(--text-muted); } .t-val { color: var(--text); font-weight: 600; } .t-sep { color: var(--border-lit); }
+    @keyframes slide { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    .page { max-width: 1300px; margin: 0 auto; }
+    .page-header { padding: 16px 20px; background: var(--bg-card); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .page-title { font-family: var(--display); font-size: 20px; font-weight: 800; color: var(--text); }
+    .page-title span { color: var(--purple); }
+    .page-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; margin-top: 3px; }
+    .ptag { font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 3px 10px; border-radius: 2px; background: var(--bg-p); color: var(--purple); }
+
+    .content { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+
+    .proj-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px;
+      border-left: 3px solid var(--green); overflow: hidden;
+      animation: fadeIn .4s ease both; transition: border-color .2s;
+    }
+    .proj-card:nth-child(2) { border-left-color: var(--yellow); animation-delay: .1s; }
+    .proj-card:nth-child(3) { border-left-color: var(--cyan);   animation-delay: .2s; }
+    .proj-card:hover { border-color: var(--border-lit); }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+    .proj-header { padding: 14px 18px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .proj-num  { font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; margin-bottom: 6px; }
+    .proj-title { font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.25; }
+    .proj-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
+    .proj-date { font-size: 11px; color: var(--text-muted); }
+
+    .proj-body { padding: 14px 18px; }
+    .proj-desc { font-size: 12px; color: var(--text-dim); line-height: 1.75; margin-bottom: 12px; }
+    .proj-points { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .proj-points li { font-size: 12px; color: var(--text-dim); line-height: 1.7; padding-left: 16px; position: relative; }
+    .proj-points li::before { content: '▸'; position: absolute; left: 0; color: var(--text-muted); }
+
+    .proj-footer { padding: 10px 18px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .proj-t { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 2px; letter-spacing: 0.5px; }
+    .proj-arrow { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color .12s; }
+    .proj-arrow:hover { color: var(--orange); }
+
+    .footer { display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; background: #070709; border-top: 1px solid var(--border); font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+    .footer-keys span { padding: 2px 5px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; font-size: 9px; margin-right: 3px; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">VS/</div>
+  <div class="topbar-sep"></div>
+  <nav class="topbar-nav">
+    <a href="index.html">OVERVIEW</a>
+    <a href="experience.html">EXPERIENCE</a>
+    <a href="skills.html">SKILLS</a>
+    <a href="projects.html" class="active">PROJECTS</a>
+    <a href="education.html">EDUCATION</a>
+  </nav>
+  <div class="topbar-spacer"></div>
+  <div class="topbar-clock" id="clock">--:--:--</div>
+  <div class="topbar-sep"></div>
+  <div class="topbar-status">ONLINE</div>
+</header>
+
+<div class="ticker-bar">
+  <div class="ticker-label">PROJECTS</div>
+  <div class="ticker-scroll"><div class="ticker-track" id="ticker-track"></div></div>
+</div>
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Key <span>Projects</span></div>
+      <div class="page-sub">WORK:005 · 3 PROJECTS · 2024–2025</div>
+    </div>
+    <span class="ptag">3 CASE STUDIES</span>
+  </div>
+
+  <div class="content">
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">PROJECT 01</div>
+          <div class="proj-title">Fintech Market Entry Strategy</div>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-date">NOV 2024</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-desc">A comprehensive market entry analysis for a fintech company looking to expand into underpenetrated segments of India's digital finance ecosystem. Applied structured strategy frameworks to identify opportunity whitespace and formulate a defensible go-to-market plan.</div>
+        <ul class="proj-points">
+          <li>Conducted Porter's Five Forces and PESTLE analysis across India's digital payments, lending, and wealth-tech segments</li>
+          <li>Identified 3 high-potential market segments with a combined addressable revenue potential of $50M+</li>
+          <li>Formulated a data-driven GTM strategy with a 5-year growth trajectory, milestone targets, and risk mitigation playbook</li>
+          <li>Synthesized findings into a 15-slide executive strategy deck for stakeholder presentation</li>
+        </ul>
+      </div>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-t" style="background:var(--bg-g);color:var(--green);">Porter's Five Forces</span>
+          <span class="proj-t" style="background:var(--bg-b);color:var(--blue);">PESTLE</span>
+          <span class="proj-t" style="background:var(--og);color:var(--orange);">GTM Strategy</span>
+          <span class="proj-t" style="background:var(--bg-p);color:var(--purple);">Market Sizing</span>
+        </div>
+        <span class="proj-arrow">View Case Study →</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">PROJECT 02</div>
+          <div class="proj-title">Quick Commerce Deep-Dive</div>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-date">FEB 2025 – PRESENT</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-desc">An in-depth strategic analysis of India's rapidly growing $5B+ quick commerce sector. Modeled after McKinsey-style consulting deliverables, this project dissects the competitive dynamics between Blinkit, Zepto, and Swiggy Instamart to surface strategic insights for investors and operators.</div>
+        <ul class="proj-points">
+          <li>Structured analysis using a McKinsey-style issue tree framework across growth drivers, unit economics, and strategic risks</li>
+          <li>Benchmarked dark store density, average order values, and customer acquisition costs across three major players</li>
+          <li>Identified 4 key inflection points that will determine category winners over the next 3 years</li>
+          <li>Synthesized findings into a 12-slide executive report with financial projections and scenario analysis</li>
+        </ul>
+      </div>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-t" style="background:var(--bg-y);color:var(--yellow);">McKinsey Framework</span>
+          <span class="proj-t" style="background:var(--bg-c);color:var(--cyan);">Market Sizing</span>
+          <span class="proj-t" style="background:var(--bg-p);color:var(--purple);">Unit Economics</span>
+          <span class="proj-t" style="background:var(--bg-b);color:var(--blue);">Competitive Analysis</span>
+        </div>
+        <span class="proj-arrow">View Case Study →</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">PROJECT 03</div>
+          <div class="proj-title">Financial Literacy Initiative</div>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-date">MAR 2025</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-desc">A grassroots financial education program designed and delivered for underprivileged students in Delhi. The initiative combined curriculum design, behavioral economics principles, and community partnerships to improve financial decision-making outcomes among participants.</div>
+        <ul class="proj-points">
+          <li>Designed 6 structured workshops covering budgeting, savings, credit, and personal investment basics for 150+ students</li>
+          <li>Achieved 80% knowledge retention rate via interactive modules and real-world financial simulations</li>
+          <li>Enabled 45+ participants to open savings accounts and adopt structured monthly money management plans</li>
+          <li>Partnered with 2 NGOs to scale delivery and sustain the program beyond the initial cohort</li>
+        </ul>
+      </div>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-t" style="background:var(--bg-g);color:var(--green);">Social Impact</span>
+          <span class="proj-t" style="background:var(--bg-b);color:var(--blue);">Financial Education</span>
+          <span class="proj-t" style="background:var(--bg-r);color:var(--red);">Financial Inclusion</span>
+          <span class="proj-t" style="background:var(--bg-c);color:var(--cyan);">Curriculum Design</span>
+        </div>
+        <span class="proj-arrow">View Case Study →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>VAIBHAV SINGH © 2025 · 3 Projects · 2024–2025</span>
+    <div class="footer-keys"><span>←</span><span>→</span> pages</div>
+  </div>
+</div>
+
+<script>
+  const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  function tick() { const d = new Date(), p = n => String(n).padStart(2,'0'); document.getElementById('clock').textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())} ${days[d.getDay()]}`; }
+  tick(); setInterval(tick, 1000);
+  (function() {
+    const items = [
+      {key:'PROJECT 01',val:'Fintech Market Entry Strategy'},{key:'PROJECT 02',val:'Quick Commerce Deep-Dive'},
+      {key:'PROJECT 03',val:'Financial Literacy Initiative'},{key:'FRAMEWORK',val:'Porter\'s 5 · PESTLE · McKinsey'},
+      {key:'TAM',val:'$50M+ Identified'},{key:'IMPACT',val:'150+ Students Reached'},
+    ];
+    const track = document.getElementById('ticker-track');
+    let html = '';
+    for (let i=0;i<2;i++) items.forEach(d => { html += `<div class="ticker-item"><span class="t-key">${d.key}</span><span class="t-val">${d.val}</span><span class="t-sep">│</span></div>`; });
+    track.innerHTML = html;
+  })();
+</script>
+</body>
+</html>
