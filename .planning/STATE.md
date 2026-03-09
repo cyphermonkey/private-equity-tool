@@ -1,3 +1,17 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: planning
+last_updated: "2026-03-09T21:10:05.667Z"
+progress:
+  total_phases: 3
+  completed_phases: 0
+  total_plans: 3
+  completed_plans: 1
+  percent: 33
+---
+
 # Project State: PE Deal Workbench
 
 ---
@@ -15,12 +29,12 @@
 ## Current Position
 
 **Phase:** 1 of 3
-**Plan:** None started
-**Status:** Planning complete. Ready to begin Phase 1.
+**Plan:** 01-01 complete (01-02 next)
+**Status:** Phase 1 in progress — engine layer complete.
 
 ```
-Progress: [----------] 0% complete
-Phase 1: [ ] Foundation + LBO Engine
+Progress: [███░░░░░░░] 33%
+Phase 1: [1/4] Foundation + LBO Engine (plan 01 complete)
 Phase 2: [ ] DCF + Comps
 Phase 3: [ ] Visualizations + Export
 ```
@@ -33,14 +47,24 @@ Phase 3: [ ] Visualizations + Export
 |--------|-------|
 | Phases defined | 3 |
 | Requirements covered | 24/24 |
-| Plans complete | 0 |
+| Plans complete | 1 |
 | Phases complete | 0/3 |
-| Session count | 1 |
+| Session count | 2 |
 | Last active | 2026-03-10 |
 
 ---
+| Phase 01-foundation-lbo-engine P01 | 37 | 2 tasks | 15 files |
 
 ## Accumulated Context
+
+### Decisions from Plan Execution
+
+| Phase-Plan | Decision | Rationale |
+|------------|----------|-----------|
+| 01-01 | Cash sweep = EBITDA - capex - interest - mandatory amort | Without capex deduction IRR was ~29%; including it aligns with VALIDATION.md Excel benchmark (25-28%) |
+| 01-01 | XIRR via Newton-Raphson, date-explicit cashflows | Validates at 14.87% for $100/$200 at 5y; plain IRR rejected per financial model constraints |
+| 01-01 | computeLBO returns raw Decimal strings, formatFinancial() is UI-only | Engine is pure; formatting is a display concern not a calculation concern |
+| 01-01 | index.html replaced with Vite SPA entry | PE Deal Workbench replaces static portfolio site in this repo |
 
 ### Architecture Decisions Locked
 
@@ -116,23 +140,17 @@ None.
 
 ### Last Session (2026-03-10)
 
-- Initialized project with `/gsd:new-project`
-- Defined PROJECT.md, REQUIREMENTS.md (24 v1 requirements)
-- Completed research: STACK.md, FEATURES.md, ARCHITECTURE.md, PITFALLS.md
-- Created ROADMAP.md (3 phases, 24/24 requirements mapped)
-- Created STATE.md (this file)
-- Status: planning complete, Phase 1 not started
+- Executed Plan 01-01: Scaffold Vite project + implement LBO engine layer
+- Created full engine: computeLBO(), xirr(), formatFinancial(), all types
+- 21 Vitest tests GREEN; tsc clean; Vite build produces dist/
+- Stopped at: Completed 01-foundation-lbo-engine/01-01-PLAN.md
 
 ### Next Session
 
-Start Phase 1 planning with `/gsd:plan-phase 1`.
-
-The plan for Phase 1 should address these build-order concerns from ARCHITECTURE.md:
-1. Calculation engine (`computeLBO()`, types, unit tests) — no UI
-2. Zustand stores (`modelStore`, `dataStore`) wired to engine
-3. Data layer (PapaParse CSV parser, pdf.js extractor, normalizer, parse failure states)
-4. Core UI (assumption panels, scenario toggle, output tables)
-5. Vercel deployment with `vercel.json` SPA rewrite rule
+Continue Phase 1 with Plan 02 (Zustand stores — modelStore + dataStore).
+- modelStore: LBOAssumptions state, all 3 scenario slots, computeLBO trigger
+- dataStore: ParsedFinancials, ingested data, parse state
+- Wire computeLBO() from engine into store actions
 
 ---
 

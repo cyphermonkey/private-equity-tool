@@ -13,10 +13,10 @@
 
 ### LBO Model
 
-- [ ] **LBO-01**: User can input Sources & Uses assumptions (entry multiple, equity %, debt tranches)
-- [ ] **LBO-02**: Tool calculates a multi-year debt schedule with mandatory amortization and cash sweep
-- [ ] **LBO-03**: Tool outputs IRR and MOIC for base, bull, and bear scenarios
-- [ ] **LBO-04**: User can set exit assumptions (exit year, exit multiple)
+- [x] **LBO-01**: User can input Sources & Uses assumptions (entry multiple, equity %, debt tranches)
+- [x] **LBO-02**: Tool calculates a multi-year debt schedule with mandatory amortization and cash sweep
+- [x] **LBO-03**: Tool outputs IRR and MOIC for base, bull, and bear scenarios
+- [x] **LBO-04**: User can set exit assumptions (exit year, exit multiple)
 
 ### DCF Valuation
 
@@ -34,9 +34,9 @@
 
 ### Scenario Analysis
 
-- [ ] **SCEN-01**: User can toggle between base, bull, and bear scenarios
-- [ ] **SCEN-02**: All model outputs (LBO, DCF, comps) update live on scenario toggle
-- [ ] **SCEN-03**: User can set independent assumptions for each scenario
+- [x] **SCEN-01**: User can toggle between base, bull, and bear scenarios
+- [x] **SCEN-02**: All model outputs (LBO, DCF, comps) update live on scenario toggle
+- [x] **SCEN-03**: User can set independent assumptions for each scenario
 
 ### Visualizations
 
@@ -91,13 +91,13 @@
 | INGEST-01 | Phase 1 | Pending |
 | INGEST-02 | Phase 1 | Pending |
 | INGEST-03 | Phase 1 | Pending |
-| LBO-01 | Phase 1 | Pending |
-| LBO-02 | Phase 1 | Pending |
-| LBO-03 | Phase 1 | Pending |
-| LBO-04 | Phase 1 | Pending |
-| SCEN-01 | Phase 1 | Pending |
-| SCEN-02 | Phase 1 | Pending |
-| SCEN-03 | Phase 1 | Pending |
+| LBO-01 | Phase 1 | Complete |
+| LBO-02 | Phase 1 | Complete |
+| LBO-03 | Phase 1 | Complete |
+| LBO-04 | Phase 1 | Complete |
+| SCEN-01 | Phase 1 | Complete |
+| SCEN-02 | Phase 1 | Complete |
+| SCEN-03 | Phase 1 | Complete |
 | DEPLOY-01 | Phase 1 | Pending |
 | DCF-01 | Phase 2 | Pending |
 | DCF-02 | Phase 2 | Pending |

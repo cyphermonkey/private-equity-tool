@@ -120,7 +120,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + LBO Engine | 0/3 | In progress | - |
+| 1. Foundation + LBO Engine | 1/3 | In Progress|  |
 | 2. DCF + Comps | 0/? | Not started | - |
 | 3. Visualizations + Export | 0/? | Not started | - |
 
