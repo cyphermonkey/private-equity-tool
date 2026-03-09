@@ -51,7 +51,7 @@
 
 ### Deployment
 
-- [ ] **DEPLOY-01**: App is accessible via a public URL (Vercel)
+- [x] **DEPLOY-01**: App is accessible via a public URL (Vercel)
 
 ## v2 Requirements
 
@@ -98,7 +98,7 @@
 | SCEN-01 | Phase 1 | Complete |
 | SCEN-02 | Phase 1 | Complete |
 | SCEN-03 | Phase 1 | Complete |
-| DEPLOY-01 | Phase 1 | Pending |
+| DEPLOY-01 | Phase 1 | Complete |
 | DCF-01 | Phase 2 | Pending |
 | DCF-02 | Phase 2 | Pending |
 | DCF-03 | Phase 2 | Pending |

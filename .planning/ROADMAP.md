@@ -10,7 +10,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Foundation + LBO Engine** — Working LBO model with CSV/PDF ingestion, scenario toggle, and live deployment on Vercel
+- [x] **Phase 1: Foundation + LBO Engine** — Working LBO model with CSV/PDF ingestion, scenario toggle, and live deployment on Vercel (completed 2026-03-09)
 - [ ] **Phase 2: DCF + Comps** — Full valuation suite with DCF engine, WACC sensitivity, and comparable company analysis via FMP API
 - [ ] **Phase 3: Visualizations + Export** — Publication-quality charts (waterfall, bridge, football field), one-click PDF tearsheet, and Excel model export
 
@@ -120,7 +120,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + LBO Engine | 2/3 | In Progress|  |
+| 1. Foundation + LBO Engine | 3/3 | Complete   | 2026-03-09 |
 | 2. DCF + Comps | 0/? | Not started | - |
 | 3. Visualizations + Export | 0/? | Not started | - |
 

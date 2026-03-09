@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-last_updated: "2026-03-09T21:17:47.529Z"
+last_updated: "2026-03-09T21:24:52.281Z"
 progress:
   total_phases: 3
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
-  percent: 33
+  completed_plans: 3
+  percent: 67
 ---
 
 # Project State: PE Deal Workbench
@@ -29,12 +29,12 @@ progress:
 ## Current Position
 
 **Phase:** 1 of 3
-**Plan:** 01-02 complete (01-03 next)
-**Status:** Phase 1 in progress — engine layer + state layer + data ingestion complete.
+**Plan:** 01-03 at checkpoint:human-verify (Task 2 — Vercel deployment verification)
+**Status:** Phase 1 UI complete — React components built, build + tests green; awaiting Vercel deploy verification.
 
 ```
-Progress: [███████░░░] 67%
-Phase 1: [2/3] Foundation + LBO Engine (plans 01-02 complete)
+Progress: [██████████] 100%
+Phase 1: [3/3] Foundation + LBO Engine (plans 01-02-03 complete pending human verify)
 Phase 2: [ ] DCF + Comps
 Phase 3: [ ] Visualizations + Export
 ```
@@ -55,6 +55,7 @@ Phase 3: [ ] Visualizations + Export
 ---
 | Phase 01-foundation-lbo-engine P01 | 37 | 2 tasks | 15 files |
 | Phase 01-foundation-lbo-engine P02 | 4 | 2 tasks | 11 files |
+| Phase 01-foundation-lbo-engine P03 | 20 | 1 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Phase 3: [ ] Visualizations + Export
 | 01-02 | Zustand getState() in tests — no renderHook needed for pure store logic | Simpler pattern; stores are plain JS objects accessed via getState() |
 | 01-02 | parseCSVFromString exported for testing without File API | PapaParse parses strings identically to files; avoids jsdom File mock complexity |
 | 01-02 | Scanned PDF guard: < 200 chars AND numPages > 1 | Single-page PDFs (cover, summary) legitimate; multi-page with no text is scanned |
+| 01-03 | Debounced 300ms inputs in AssumptionPanel throttle computeLBO to avoid per-keystroke recalculation | Engine is fast but not instant; debounce keeps UI snappy during typing |
+| 01-03 | useActiveOutputs hook centralizes outputs[activeScenario] read | Single selector for all output panels; avoids duplicated store subscriptions |
+| 01-03 | PDF UploadZone creates stub ParsedFinancials with rawText only | PDF field extraction deferred to Phase 2; stub prevents crash on PDF upload |
 
 ### Architecture Decisions Locked
 
@@ -144,19 +148,22 @@ None.
 
 ### Last Session (2026-03-10)
 
-- Executed Plan 01-02: Zustand state layer + data ingestion layer
-- modelStore (3-scenario management, all-scenario recompute), dataStore (parsedFinancials + overrideField)
-- CSV parser (PapaParse + alias normalization), PDF extractor (pdfjs-dist + scanned guard), normalizer
-- 52 Vitest tests GREEN (21 engine + 12 stores + 19 data); tsc clean
-- Stopped at: Completed 01-foundation-lbo-engine/01-02-PLAN.md
+- Executed Plan 01-03: React UI layer
+- 8 new components: UploadZone, ParsedPreview, AssumptionPanel, SourcesUses, DebtScheduleTable, OutputTable, ScenarioToggle, useActiveOutputs
+- App.tsx: full dark two-column layout wiring all components
+- Build: 53 modules, tsc clean; 52 Vitest tests GREEN
+- Pre-existing TypeScript errors in pdfExtractor.ts and modelStore.ts fixed (blocked build)
+- Stopped at: checkpoint:human-verify Task 2 — awaiting Vercel deployment verification
 
 ### Next Session
 
-Continue Phase 1 with Plan 03 (React UI components).
-- Assumption input panel wired to modelStore.setAssumption
-- Output display reading from modelStore.outputs[activeScenario]
-- File upload UI for CSV/PDF ingestion via dataStore
-- Scenario toggle (base/bull/bear) wired to modelStore.setActiveScenario
+Complete Plan 01-03 Task 2 (human-verify):
+1. Run `npm run dev`, verify at http://localhost:5173
+2. Upload src/data/fixtures/sample.csv — check ParsedPreview populates
+3. Change Entry Multiple — verify IRR/MOIC update
+4. Click Bull/Bear toggle — verify scenario switch
+5. Deploy with `npx vercel --yes`
+6. Verify Vercel URL loads and deep-links do not 404
 
 ---
 
