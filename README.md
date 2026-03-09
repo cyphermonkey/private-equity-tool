@@ -4,6 +4,8 @@ A browser-based private equity deal analysis platform. Upload company financials
 
 Built as a portfolio project to demonstrate PE technical skills.
 
+**Live:** https://private-equity-tool.vercel.app
+
 ---
 
 ## What it does
