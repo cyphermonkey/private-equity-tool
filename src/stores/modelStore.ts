@@ -87,7 +87,7 @@ export const useModelStore = create<ModelStore>((set, get) => ({
     };
 
     // Apply the update to the targeted scenario
-    (updatedScenarios[scenario] as Record<string, unknown>)[key as string] = value;
+    (updatedScenarios[scenario] as unknown as Record<string, unknown>)[key as string] = value;
 
     // Recompute ALL three scenarios
     const newOutputs: Record<ScenarioKey, LBOOutputs | null> = {
