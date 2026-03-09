@@ -7,9 +7,9 @@
 
 ### File Ingestion
 
-- [ ] **INGEST-01**: User can upload a CSV file of financial data to populate model inputs
-- [ ] **INGEST-02**: User can upload a 10-K PDF to extract key financial line items
-- [ ] **INGEST-03**: User can manually override any parsed or extracted value
+- [x] **INGEST-01**: User can upload a CSV file of financial data to populate model inputs
+- [x] **INGEST-02**: User can upload a 10-K PDF to extract key financial line items
+- [x] **INGEST-03**: User can manually override any parsed or extracted value
 
 ### LBO Model
 
@@ -88,9 +88,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INGEST-01 | Phase 1 | Pending |
-| INGEST-02 | Phase 1 | Pending |
-| INGEST-03 | Phase 1 | Pending |
+| INGEST-01 | Phase 1 | Complete |
+| INGEST-02 | Phase 1 | Complete |
+| INGEST-03 | Phase 1 | Complete |
 | LBO-01 | Phase 1 | Complete |
 | LBO-02 | Phase 1 | Complete |
 | LBO-03 | Phase 1 | Complete |
