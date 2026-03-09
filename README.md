@@ -42,7 +42,7 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:5173`
+
 
 ```bash
 npm test        # run all tests
