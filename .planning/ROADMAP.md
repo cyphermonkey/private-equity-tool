@@ -34,7 +34,12 @@
   5. User can toggle between base, bull, and bear scenarios and all LBO outputs (debt schedule, IRR, MOIC) update in the same render cycle — no perceptible lag
   6. App is accessible via a public Vercel URL with no install required
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold + Vitest + LBO engine (types, computeLBO, XIRR, formatFinancial) + all engine tests GREEN
+- [ ] 01-02-PLAN.md — Zustand stores (modelStore, dataStore) + data ingestion (CSV parser, PDF extractor, normalizer) + all store/data tests GREEN
+- [ ] 01-03-PLAN.md — React UI (upload zone, assumption panel, output table, scenario toggle) + Vercel deployment
 
 **Tech Notes**:
 - Scaffold: `npm create vite@latest pe-deal-workbench -- --template react-ts` — no Next.js, this is a static SPA
@@ -115,7 +120,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + LBO Engine | 0/? | Not started | - |
+| 1. Foundation + LBO Engine | 0/3 | In progress | - |
 | 2. DCF + Comps | 0/? | Not started | - |
 | 3. Visualizations + Export | 0/? | Not started | - |
 
@@ -155,4 +160,4 @@
 ---
 
 *Roadmap created: 2026-03-10*
-*Last updated: 2026-03-10 after initial planning*
+*Last updated: 2026-03-10 after Phase 1 planning*
